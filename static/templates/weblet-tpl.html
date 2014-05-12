@@ -1,0 +1,31 @@
+<div ng-controller="WebletCtrl" ui-draggable="true"
+	drag-channel="gweblet" drag="weblet"
+	on-drop-success="dropSuccessHandler($event,weblet,weblets)">
+	<div class="panel-header-container"
+		ng-mouseenter="setControlVisible(true)"
+		ng-mouseleave="setControlVisible(false)">
+		<div
+			ng-class="isHeaderVisible()? 'panel-header-control':'panel-header-control reverse-text'"
+			ng-show="isControlVisible()">
+			<i class="step fi-info size-12 control" title="Help"
+				ng-click="setView('/common/templates/weblet-help-tpl.html')"></i>
+			&nbsp; <i class="step fi-wrench size-12 control" title="Configure"></i>
+			&nbsp; <i class="step fi-minus size-12 control"
+				ng-click="setContentVisible(!isContentVisible())" title="Minimize"></i>
+			&nbsp;<i class="step fi-tablet-landscape size-12 control"
+				title="Maximize"></i> &nbsp;<i class="step fi-x size-12 control"
+				title="Remove"></i>
+		</div>
+		<div class="panel-header" ng-show="isHeaderVisible()">
+			<div class="panel-header-title">
+				<i class="step fi-list size-12"></i>&nbsp;&nbsp;{{weblet.title}}
+			</div>
+		</div>
+	</div>
+	<div class="panel"
+		ng-mouseenter="setControlVisible(!isHeaderVisible())"
+		ng-mouseleave="setControlVisible(!isHeaderVisible())"
+		ng-show="isContentVisible()" ng-include="getView()"></div>
+</div>
+
+<br ng-if="!isContentVisible()" />

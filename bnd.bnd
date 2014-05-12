@@ -1,0 +1,4 @@
+Bundle-Version: 0.1.0
+Include-Resource: common=static
+X-Web-Resource: /common
+X-Web-Resource-Version: 1.0

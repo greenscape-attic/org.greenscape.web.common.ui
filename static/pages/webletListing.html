@@ -1,0 +1,18 @@
+<div class="div-container">
+	<div class="left-div">
+		<ul class="side-nav">
+			<li ng-class="{active: $index==selectedIndex}"
+				ng-repeat="cat in gWebletCategories"><a
+				ng-click="showTab($index)">{{cat.name}}</a></li>
+		</ul>
+	</div>
+	<div class="right-div">
+		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+			<li ng-repeat="weblet in gWeblets | filter:checkCategories">
+				{{weblet.name}} <a href="#"
+				class="button tiny round">Add
+					to Page</a>
+			</li>
+		</ul>
+	</div>
+</div>

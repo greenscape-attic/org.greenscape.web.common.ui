@@ -1,0 +1,21 @@
+<br />
+<div class="row">
+	<div class="small-12 columns">
+		<div class="weblet-container">
+			<ng-include src="'weblet-container-control11.html'"></ng-include>
+			<div
+				ng-repeat="weblet in weblets | filter:{'row':1,'col':1}:true | orderBy:'order'">
+				<ng-include src="'/common/templates/weblet-tpl.html'"></ng-include>
+				<ng-include src="'weblet-container-control11.html'"></ng-include>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/ng-template" id="weblet-container-control11.html">
+<div class="weblet-container-control-container" drop-channel="gweblet"
+	ui-on-drop="onDrop($event,$data,weblets)" data-row="1" data-col="1" data-order="{{$index>=0?$index+2:1}}">
+	<div class="weblet-container-control">
+		<i class="step fi-plus size-12" title="Add Weblet"></i>
+	</div>
+</div>
+</script>

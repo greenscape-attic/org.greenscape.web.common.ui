@@ -1,0 +1,44 @@
+<div>
+	<div class="row">
+		<div class="small-12 columns" ng-include="gSite.template.headerUrl"></div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<nav class="top-bar" data-topbar>
+				<ul class="title-area">
+					<li class="name"></li>
+					<li class="toggle-topbar menu-icon"></li>
+				</ul>
+
+				<section class="top-bar-section">
+					<!-- Right Nav Section -->
+					<ul class="right">
+					</ul>
+
+					<!-- Left Nav Section -->
+					<ul class="left">
+						<li ng-repeat="page in gSite.pages"
+							ng-include="'topbar_renderer.html'"
+							ng-class="page.pages? 'has-dropdown no-click' : ''"
+							ng-mouseenter="setControlVisible(true)"
+							ng-mouseleave="setControlVisible(false)"></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns">
+			<div ng-view></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns" ng-include="gSite.template.footerUrl"></div>
+	</div>
+</div>
+<script type="text/ng-template" id="topbar_renderer.html">
+<a href="#/{{page.pathURL}}">{{page.name}}</a>
+<ul ng-if="page.pages" class="dropdown">
+<li ng-repeat="page in page.pages" ng-include="'topbar_renderer.html'"></li>
+</ul>
+</script>

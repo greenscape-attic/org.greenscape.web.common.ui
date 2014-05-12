@@ -1,0 +1,103 @@
+.row {
+	min-width: 100% !important;
+}
+
+.round {
+	border-radius: 1000px;
+}
+
+.reveal-modal {
+	position: fixed;
+}
+
+.weblet-container {
+	
+}
+
+.weblet-container-hover {
+	border-width: 1px;
+	border-color: #999999;
+	border-style: dashed;
+}
+
+.weblet-container-control-container {
+	height: 15px;
+}
+
+.weblet-container-control {
+	float: right;
+}
+
+.panel-header-container {
+	background: #555555;
+	border-top: 1px solid transparent;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.panel-header {
+	color: white;
+}
+
+.panel-header-title {
+	margin-left: 5px;
+	color: white;
+	line-height: 2em;
+	vertical-align: middle;
+	height: 2em;
+}
+
+.panel-header-title h6 {
+	color: white;
+}
+
+.panel-header-control {
+	margin-right: 5px;
+	float: right;
+	text-align: right;
+	color: white;
+	height: 2em;
+	line-height: 2em;
+	vertical-align: middle;
+}
+
+/** TODO: use foundation class**/
+.control:hover {
+	color: #d9d9d9;
+}
+
+.reverse-text {
+	color: black;
+}
+
+.float-right {
+	float: right;
+}
+
+.on-drag-enter {
+	border-width: 1px;
+	border-color: #999999;
+	border-style: dashed;
+}
+
+.div-container {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	padding: 10px;
+}
+
+.left-div {
+	width: 20%;
+	height: 400px; /*TODO: not responsive*/
+	margin-right: 8px;
+	float: left;
+	overflow-y: auto;
+}
+
+.right-div {
+	margin-left: 21%;
+	height: 400px; /*TODO: not responsive*/
+	overflow-y: auto;
+	overflow-x: hidden;
+}
