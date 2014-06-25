@@ -1,0 +1,62 @@
+<div data-alert class="alert-box alert round" ng-show="isError">
+  {{errorMsg}}
+  <a href="" class="close" ng-click="setErrorVisible(false)">&times;</a>
+</div>
+<h3>Manage Pagelet</h3>
+<div class="row div-container">
+	<dl class="tabs vertical" data-tab>
+		<dd ng-class="currentTab==1? 'active' : ''">
+			<a href="" ng-click="showTabContent(1)">Details</a>
+		</dd>
+		<dd ng-class="currentTab==2? 'active' : ''">
+			<a href="" ng-click="showTabContent(2)">Look and Feel</a>
+		</dd>
+		<dd ng-class="currentTab==3? 'active' : ''">
+			<a href="" ng-click="showTabContent(3)">Layout</a>
+		</dd>
+		<dd ng-class="currentTab==4? 'active' : ''">
+			<a href="" ng-click="showTabContent(4)">Permissions</a>
+		</dd>
+	</dl>
+	<div class="tabs-content vertical">
+		<div ng-show="currentTab==1" class="content active">
+			<form>
+				<div class="row">
+					<div class="large-12">
+						<div class="row">
+							<div class="small-4 columns">
+								<label for="title" class="right inline">Title:</label>
+							</div>
+							<div class="small-8 columns">
+								<input type="text" id="title" placeholder="Title" ng-model="pagelet.title">
+							</div>
+						</div>
+						<div class="row">
+							<div class="small-4 columns">
+								<label for="htmlTitle" class="right inline">HTML Title:</label>
+							</div>
+							<div class="small-8 columns">
+								<input type="text" id="htmlTitle" placeholder="HTML Title">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div ng-show="currentTab==2" class="content active">
+			<p>Second panel content goes here...</p>
+		</div>
+		<div ng-show="currentTab==3" class="content active">
+			<p>Third panel content goes here...</p>
+		</div>
+		<div ng-show="currentTab==4" class="content active">
+			<p>Fourth panel content goes here...</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<ul class="button-group round">
+		<li><a href="" class="tiny button" ng-click="save()">Save</a></li>
+		<li><a href="" class="tiny button" ng-click="cancel()">Close</a></li>
+	</ul>
+</div>

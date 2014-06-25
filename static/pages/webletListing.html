@@ -9,7 +9,7 @@
 	<div class="right-div">
 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
 			<li ng-repeat="weblet in gWeblets | filter:checkCategories">
-				{{weblet.name}} <a href="#"
+				{{weblet.title}} <a ng-click="addPagelet(weblet)"
 				class="button tiny round">Add
 					to Page</a>
 			</li>

@@ -101,3 +101,7 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 }
+
+.panel-header-icon {
+	float: left;
+}

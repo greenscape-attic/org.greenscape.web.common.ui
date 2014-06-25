@@ -1,6 +1,6 @@
-<div ng-controller="WebletCtrl" ui-draggable="true"
+<div ng-controller="WebletCtrl" ui-draggable="{{draggable}}"
 	drag-channel="gweblet" drag="weblet"
-	on-drop-success="dropSuccessHandler($event,weblet,weblets)">
+	on-drop-success="dropSuccessHandler($event,pagelet,gPagelets)">
 	<div class="panel-header-container"
 		ng-mouseenter="setControlVisible(true)"
 		ng-mouseleave="setControlVisible(false)">
@@ -9,23 +9,32 @@
 			ng-show="isControlVisible()">
 			<i class="step fi-info size-12 control" title="Help"
 				ng-click="setView('/common/templates/weblet-help-tpl.html')"></i>
-			&nbsp; <i class="step fi-wrench size-12 control" title="Configure"></i>
-			&nbsp; <i class="step fi-minus size-12 control"
+			&nbsp; <i class="step fi-wrench size-12 control"
+				ng-click="showConfigure()" title="Configure"></i> &nbsp; <i
+				class="step fi-minus size-12 control"
 				ng-click="setContentVisible(!isContentVisible())" title="Minimize"></i>
-			&nbsp;<i class="step fi-tablet-landscape size-12 control"
+			&nbsp;<i class="step fi-tablet-landscape size-12 control" ng-click=""
 				title="Maximize"></i> &nbsp;<i class="step fi-x size-12 control"
-				title="Remove"></i>
+				title="Remove" ng-click="remove()"></i>
 		</div>
 		<div class="panel-header" ng-show="isHeaderVisible()">
 			<div class="panel-header-title">
-				<i class="step fi-list size-12"></i>&nbsp;&nbsp;{{weblet.title}}
+				<i class="step fi-list size-12 panel-header-icon"></i>
+				<div ng-click="startEditTitle()">&nbsp;&nbsp;{{pagelet.title}}</div>
 			</div>
 		</div>
 	</div>
-	<div class="panel"
-		ng-mouseenter="setControlVisible(!isHeaderVisible())"
-		ng-mouseleave="setControlVisible(!isHeaderVisible())"
-		ng-show="isContentVisible()" ng-include="getView()"></div>
+	<div class="panel" ng-mouseenter="setControlVisible(true)"
+		ng-mouseleave="setControlVisible(false)" ng-show="isContentVisible()"
+		ng-mousedown="setDraggable(false)" ng-mouseup="setDraggable(true)"
+		ng-include="getView()"></div>
+
+	<div ng-controller="PageletSettingsCtrl">
+		<div id="pageletSettings" class="reveal-modal" data-reveal>
+			<ng-include src="'/common/pages/pageletSettings.html'"></ng-include>
+			<a class="close-reveal-modal">&#215;</a>
+		</div>
+	</div>
 </div>
 
 <br ng-if="!isContentVisible()" />
