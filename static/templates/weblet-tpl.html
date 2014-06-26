@@ -2,11 +2,13 @@
 	drag-channel="gweblet" drag="weblet"
 	on-drop-success="dropSuccessHandler($event,pagelet,gPagelets)">
 	<div class="panel-header-container"
-		ng-mouseenter="setControlVisible(true)"
-		ng-mouseleave="setControlVisible(false)">
+		ng-mouseenter="setControlVisible(true);setDraggable(true)"
+		ng-mouseleave="setControlVisible(false);setDraggable(false)">
 		<div
 			ng-class="isHeaderVisible()? 'panel-header-control':'panel-header-control reverse-text'"
-			ng-show="isControlVisible()">
+			ng-show="isControlVisible()" ng-mouseenter="setDraggable(true)"
+			ng-mouseleave="setDraggable(false)">
+			<span ng-show="!isHeaderVisible()">&nbsp;&nbsp;{{pagelet.title}}</span>
 			<i class="step fi-info size-12 control" title="Help"
 				ng-click="setView('/common/templates/weblet-help-tpl.html')"></i>
 			&nbsp; <i class="step fi-wrench size-12 control"
@@ -26,7 +28,6 @@
 	</div>
 	<div class="panel" ng-mouseenter="setControlVisible(true)"
 		ng-mouseleave="setControlVisible(false)" ng-show="isContentVisible()"
-		ng-mousedown="setDraggable(false)" ng-mouseup="setDraggable(true)"
 		ng-include="getView()"></div>
 
 	<div ng-controller="PageletSettingsCtrl">

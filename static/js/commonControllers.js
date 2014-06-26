@@ -46,8 +46,8 @@ function WebletCtrl($scope, $rootScope, $log, Restangular, angularLoad) {
 	}
 
 	// initialize
-	$scope.draggable = true;
-	$scope.setHeaderVisible(true);
+	$scope.draggable = false;
+	$scope.setHeaderVisible(false);
 	$scope.setControlVisible(false);
 	$scope.setContentVisible(true);
 	$scope.data = {}; // data shared by child controllers
