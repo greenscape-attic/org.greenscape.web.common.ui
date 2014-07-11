@@ -39,6 +39,8 @@ function WebletCtrl($scope, $rootScope, $log, Restangular, angularLoad) {
 			'row' : pagelet.row,
 			'column' : pagelet.column,
 			'order' : pagelet.order
+		}).then(function(){
+			// TODO: remove from ui
 		});
 	};
 	$scope.setDraggable = function(draggable){
@@ -152,7 +154,7 @@ function WebletListingCtrl($scope, $rootScope, $log, Restangular) {
 			'column' : $scope.addPosition.column,
 			'order' : $scope.addPosition.order
 		}).then(function(pagelet) {
-			$scope.currentPage.pagelets.push(pagelet);// TODO: not working
+// $scope.gPagelets.push(pagelet);// TODO: not working
 		});
 	};
 	$scope.selectedIndex = 0;
