@@ -10,7 +10,7 @@ function WebletCtrl($scope, $rootScope, $log, Restangular, angularLoad) {
 	};
 	$scope.setContentVisible = function(isVisible) {
 		cnt_show = isVisible;
-	};
+	};$scope.pagelet
 	$scope.isContentVisible = function() {
 		return cnt_show;
 	};
@@ -53,13 +53,17 @@ function WebletCtrl($scope, $rootScope, $log, Restangular, angularLoad) {
 	$scope.setControlVisible(false);
 	$scope.setContentVisible(true);
 	$scope.data = {}; // data shared by child controllers
-	angularLoad.loadScript($scope.webletBaseURL + '/webcontentdisplay.js').then(function() {
-
-		$scope.setView('/common/templates/weblet-view-tpl.html');
-		
-	}).catch(function() {
-	    // There was some error loading the script.
-	});
+	var jsFiles = $scope.pagelet.weblet.loadJS.split(',');
+	for(var i in jsFiles) {
+		angularLoad.loadScript($scope.webletBaseURL + '/' + jsFiles[i]).then(function() {
+			if(i == jsFiles.length-1) {
+				$scope.setView('/common/templates/weblet-view-tpl.html');
+			}
+			
+		}).catch(function() {
+		    $log.error("Error loading script: "+$scope.webletBaseURL + '/' + jsFiles[i]);
+		});
+	}
 }
 
 function LayoutCtrl($scope, $rootScope, $location, $log, Restangular) {
